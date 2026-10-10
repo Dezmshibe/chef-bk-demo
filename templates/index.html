@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chef BK | Private Chef & Catering</title>
+  <meta name="description" content="Chef BK private chef and catering experiences for celebrations, corporate events and intimate dining.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#top">CHEF <span>BK</span></a>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <a class="nav-cta" href="#quote">Request a Quote</a>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">PRIVATE CHEF • CATERING • EVENTS</p>
+      <h1>Restaurant-quality experiences,<br><em>served your way.</em></h1>
+      <p class="hero-copy">Elevate your next celebration, corporate event or intimate dinner with Chef BK's personalised culinary experiences.</p>
+      <div class="actions">
+        <a class="btn primary" href="#quote">Plan Your Event</a>
+        <a class="btn ghost" href="#experience">Explore the Food</a>
+      </div>
+    </div>
+    <div class="hero-note">Private dining • Events • Corporate • Meal prep</div>
+  </section>
+
+  <section class="trust">
+    <div><strong>PERSONALISED</strong><span>Menus designed around your occasion</span></div>
+    <div><strong>PROFESSIONAL</strong><span>Chef-led service from planning to plate</span></div>
+    <div><strong>MEMORABLE</strong><span>Food your guests will talk about</span></div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-heading">
+      <p class="eyebrow">WHAT CHEF BK DOES</p>
+      <h2>More than a meal.<br><em>An experience.</em></h2>
+    </div>
+    <div class="cards">
+      <article class="card"><span>01</span><h3>Private Chef</h3><p>Restaurant-style dining brought into the comfort of your home, villa or private venue.</p><a href="#quote">Plan a private dinner →</a></article>
+      <article class="card"><span>02</span><h3>Events & Celebrations</h3><p>Birthdays, graduations, milestones and special occasions with menus built around your guests.</p><a href="#quote">Plan your celebration →</a></article>
+      <article class="card"><span>03</span><h3>Corporate Catering</h3><p>Professional catering for meetings, launches, team events and corporate functions.</p><a href="#quote">Request corporate catering →</a></article>
+      <article class="card"><span>04</span><h3>Meal Prep</h3><p>Thoughtfully prepared meals designed for clients who want quality food without the daily preparation.</p><a href="#quote">Ask about meal prep →</a></article>
+    </div>
+  </section>
+
+  <section class="feature" id="experience">
+    <div class="feature-image">
+      <div class="image-label">CHEF BK<br><small>culinary experience</small></div>
+    </div>
+    <div class="feature-copy">
+      <p class="eyebrow">THE EXPERIENCE</p>
+      <h2>Your occasion.<br><em>Your menu.</em></h2>
+      <p>From the first conversation to the final plate, every detail is designed around the occasion. Choose the atmosphere, the menu and the experience — Chef BK handles the culinary side.</p>
+      <ul>
+        <li>Custom menus and dietary requirements</li>
+        <li>Private dining and event catering</li>
+        <li>Professional presentation and service</li>
+        <li>Flexible packages for different occasions</li>
+      </ul>
+      <a class="text-link" href="#quote">Start planning →</a>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="section-heading center">
+      <p class="eyebrow">THE FOOD</p>
+      <h2>A taste of <em>Chef BK</em></h2>
+    </div>
+    <div class="gallery">
+      <div class="tile tall"><span>PRIVATE DINNER</span></div>
+      <div class="tile"><span>EVENT CATERING</span></div>
+      <div class="tile"><span>CHEF'S TABLE</span></div>
+      <div class="tile wide"><span>CELEBRATIONS</span></div>
+      <div class="tile"><span>CORPORATE</span></div>
+    </div>
+    <p class="demo-note">Demo note: replace these visual placeholders with Chef BK's approved photography.</p>
+  </section>
+
+  <section class="about" id="about">
+    <div>
+      <p class="eyebrow">MEET CHEF BK</p>
+      <h2>Passion on the plate.<br><em>Purpose behind it.</em></h2>
+    </div>
+    <div>
+      <p>Chef BK brings professional culinary training, hospitality experience and a passion for creating memorable food experiences. This demo is designed to make that story easier for potential clients to discover — and easier for them to take the next step.</p>
+      <a class="text-link" href="#quote">Work with Chef BK →</a>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="section-heading center">
+      <p class="eyebrow">CLIENT LOVE</p>
+      <h2>Good food.<br><em>Great memories.</em></h2>
+    </div>
+    <div class="review-grid">
+      <blockquote>“The food was absolutely fantastic and beautifully presented. Chef BK made the whole experience feel effortless.”<cite>— Private dinner client</cite></blockquote>
+      <blockquote>“Everything was handled professionally from start to finish. Our guests loved the food.”<cite>— Celebration client</cite></blockquote>
+      <blockquote>“A beautiful private chef experience. The menu, presentation and service were exceptional.”<cite>— Villa experience client</cite></blockquote>
+    </div>
+  </section>
+
+  <section class="quote" id="quote">
+    <div class="quote-copy">
+      <p class="eyebrow">LET'S PLAN IT</p>
+      <h2>Tell us about<br><em>your occasion.</em></h2>
+      <p>Share a few details and Chef BK can follow up with a tailored recommendation and quote.</p>
+      <a class="whatsapp" href="https://wa.me/27000000000" target="_blank" rel="noopener">WhatsApp Chef BK</a>
+      <small>Replace the demo WhatsApp number before launch.</small>
+    </div>
+    <form id="quoteForm">
+      <label>Name<input name="name" required placeholder="Your name"></label>
+      <label>WhatsApp / Phone<input name="phone" required placeholder="+27 ..."></label>
+      <label>Email<input name="email" type="email" placeholder="you@example.com"></label>
+      <label>Event type
+        <select name="event_type">
+          <option>Private dinner</option><option>Birthday / celebration</option><option>Corporate event</option><option>Graduation</option><option>Meal prep</option><option>Other</option>
+        </select>
+      </label>
+      <div class="two">
+        <label>Event date<input name="date" type="date"></label>
+        <label>Guests<input name="guests" type="number" min="1" placeholder="10"></label>
+      </div>
+      <label>Tell us about your event<textarea name="message" rows="4" placeholder="Location, menu ideas, dietary requirements, etc."></textarea></label>
+      <button class="btn primary" type="submit">Request My Quote</button>
+      <p id="result" class="result"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="brand">CHEF <span>BK</span></div>
+  <p>Private chef & catering experiences.</p>
+  <p class="powered">Demo concept by <strong>MSHIBE GROUP</strong></p>
+</footer>
+
+<script>
+const form = document.getElementById('quoteForm');
+const result = document.getElementById('result');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  result.textContent = "Sending enquiry...";
+  const data = Object.fromEntries(new FormData(form));
+  const response = await fetch("/request-quote", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(data)
+  });
+  const json = await response.json();
+  result.textContent = json.message;
+  if (json.success) form.reset();
+});
+</script>
+</body>
+</html>
