@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Your Quote · Chef BK</title>
+  <meta name="description" content="Indicative quote for your Chef BK event.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="quote-page">
+
+<header class="nav solid">
+  <a class="brand" href="{{ url_for('home') }}">CHEF <span>BK</span></a>
+  <a class="nav-cta" href="{{ url_for('home') }}#quote">New Quote</a>
+</header>
+
+<main class="quote-wrap">
+
+  <div class="quote-doc">
+
+    <div class="quote-head">
+      <div>
+        <p class="eyebrow">INDICATIVE QUOTE</p>
+        <h1>Your Chef BK<br><em>event estimate.</em></h1>
+      </div>
+      <div class="quote-meta">
+        <div><span>Quote ID</span><strong>{{ quote.id }}</strong></div>
+        <div><span>Issued</span><strong>{{ quote.created_at }}</strong></div>
+      </div>
+    </div>
+
+    <section class="quote-block">
+      <h2>Client</h2>
+      <p>
+        <strong>{{ quote.client.name or "—" }}</strong><br>
+        {% if quote.client.phone %}{{ quote.client.phone }}<br>{% endif %}
+        {% if quote.client.email %}{{ quote.client.email }}{% endif %}
+      </p>
+    </section>
+
+    <section class="quote-block">
+      <h2>Event</h2>
+      <p>
+        <strong>{{ quote.event.label }}</strong><br>
+        {% if quote.event.date %}Date: {{ quote.event.date }}<br>{% endif %}
+        Guests: {{ quote.event.guests }}
+        {% if quote.event.notes %}<br><em>{{ quote.event.notes }}</em>{% endif %}
+      </p>
+    </section>
+
+    <section class="quote-block">
+      <h2>Estimate</h2>
+      <table class="quote-table">
+        <tr><td>Event type</td><td>{{ quote.event.label }}</td></tr>
+        <tr><td>Guests</td><td>{{ quote.event.guests }}</td></tr>
+        <tr><td>Rate per guest</td><td>R {{ "{:,}".format(quote.pricing.per_guest).replace(",", " ") }}</td></tr>
+        <tr><td>Subtotal</td><td>R {{ "{:,}".format(quote.pricing.subtotal).replace(",", " ") }}</td></tr>
+        <tr><td>Chef &amp; service fee</td><td>R {{ "{:,}".format(quote.pricing.chef_fee).replace(",", " ") }}</td></tr>
+        <tr class="quote-total">
+          <td>Estimated total</td>
+          <td>R {{ "{:,}".format(quote.pricing.low_total).replace(",", " ") }} – R {{ "{:,}".format(quote.pricing.high_total).replace(",", " ") }}</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="quote-block quote-actions">
+      <button onclick="window.print()" class="btn primary">Print / Save as PDF</button>
+      <a class="btn ghost dark" href="https://wa.me/27000000000?text=Hi%20Chef%20BK%2C%20I%27d%20like%20to%20discuss%20quote%20{{ quote.id }}" target="_blank" rel="noopener">Discuss on WhatsApp</a>
+    </section>
+
+    <p class="quote-disclaimer">
+      This is an indicative demo estimate only. Final pricing depends on menu,
+      location, travel and service requirements. Chef BK will confirm all
+      details personally before booking.
+    </p>
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="brand">CHEF <span>BK</span></div>
+  <p>Private chef &amp; catering experiences.</p>
+  <p class="powered">Demo concept by <strong>MSHIBE GROUP</strong></p>
+</footer>
+
+</body>
+</html>

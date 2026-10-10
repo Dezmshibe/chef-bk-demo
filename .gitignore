@@ -1,6 +1,26 @@
-.venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+ENV/
+
+# Flask
+instance/
+.webenv
+
+# Enquiries log (local demo data — don't commit real client info)
+enquiries.jsonl
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Env files
 .env
 .env.*
-!.env.example

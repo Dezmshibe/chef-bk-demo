@@ -77,13 +77,22 @@
       <h2>A taste of <em>Chef BK</em></h2>
     </div>
     <div class="gallery">
-      <div class="tile tall"><span>PRIVATE DINNER</span></div>
-      <div class="tile"><span>EVENT CATERING</span></div>
-      <div class="tile"><span>CHEF'S TABLE</span></div>
-      <div class="tile wide"><span>CELEBRATIONS</span></div>
-      <div class="tile"><span>CORPORATE</span></div>
+      <div class="tile tall" style="background-image:url('{{ url_for('static', filename='images/private-dinner.webp') }}')">
+        <span>PRIVATE DINNER</span>
+      </div>
+      <div class="tile" style="background-image:url('{{ url_for('static', filename='images/event-catering.webp') }}')">
+        <span>EVENT CATERING</span>
+      </div>
+      <div class="tile" style="background-image:url('{{ url_for('static', filename='images/chefs-table.webp') }}')">
+        <span>CHEF'S TABLE</span>
+      </div>
+     <div class="tile" style="background-image:url('{{ url_for('static', filename='images/celebrations.webp') }}')">
+  <span>CELEBRATIONS</span>
+</div>
+      <div class="tile" style="background-image:url('{{ url_for('static', filename='images/event-catering.webp') }}')">
+        <span>CORPORATE</span>
+      </div>
     </div>
-    <p class="demo-note">Demo note: replace these visual placeholders with Chef BK's approved photography.</p>
   </section>
 
   <section class="about" id="about">
@@ -114,7 +123,7 @@
       <p class="eyebrow">LET'S PLAN IT</p>
       <h2>Tell us about<br><em>your occasion.</em></h2>
       <p>Share a few details and Chef BK can follow up with a tailored recommendation and quote.</p>
-      <a class="whatsapp" href="https://wa.me/27000000000" target="_blank" rel="noopener">WhatsApp Chef BK</a>
+      <a class="whatsapp" href="https://wa.me/27662001555" target="_blank" rel="noopener">WhatsApp Chef BK</a>
       <small>Replace the demo WhatsApp number before launch.</small>
     </div>
     <form id="quoteForm">
@@ -142,22 +151,41 @@
   <p>Private chef & catering experiences.</p>
   <p class="powered">Demo concept by <strong>MSHIBE GROUP</strong></p>
 </footer>
-
 <script>
 const form = document.getElementById('quoteForm');
 const result = document.getElementById('result');
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  result.textContent = "Sending enquiry...";
-  const data = Object.fromEntries(new FormData(form));
-  const response = await fetch("/request-quote", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify(data)
-  });
-  const json = await response.json();
-  result.textContent = json.message;
-  if (json.success) form.reset();
+  result.textContent = "Preparing your quote...";
+
+  try {
+    const data = Object.fromEntries(new FormData(form));
+    const response = await fetch("/request-quote", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      console.error("Server error:", text);
+      result.textContent = "Server error (" + response.status + ").";
+      return;
+    }
+
+    const json = await response.json();
+    console.log("Response:", json);
+
+    if (json.success && json.redirect) {
+      window.location.href = json.redirect;
+    } else {
+      result.textContent = "Unexpected response. Check the console.";
+    }
+  } catch (err) {
+    console.error("Fetch failed:", err);
+    result.textContent = "Network error. Is Flask running?";
+  }
 });
 </script>
 </body>
